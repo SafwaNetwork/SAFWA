@@ -27,6 +27,11 @@ The **SAFWA Protocol** implements a Continuous Liquidity Mechanism. Unlike tradi
 | **Reserve Ratio** | 100% | Every SFW§ is fully collateralized by USDC. |
 | **Network** | Polygon PoS | Low-latency, high-efficiency execution layer. |
 
+### 1.2 Price Equation
+
+The token price ($P$) at any given supply ($x$) is determined by:
+$$P(x) = 0.005 \cdot \sqrt{x} + 1$$
+
 ---
 
 ## 2. PRICE PROJECTIONS & MILESTONES
@@ -47,7 +52,7 @@ The following simulation demonstrates the deterministic price behavior of SFW§ 
 ### 📊 Mathematical Insights
 
 - **Incentivized Adoption:** At a circulating supply of just 1 million tokens, the price reaches **$6.00**.
-- **Institutional Scale:** To reach a price of $51.00, the protocol will manage a Total Value Locked (TVL) of over **$4.3 Billion**, ensuring deep liquidity for all participants.
+- **Institutional Scale:** To reach a price of $51.00, the protocol will manage a Total Value Locked (TVL) of over **$3.43 Billion**, ensuring deep liquidity for all participants.
 
 ---
 
