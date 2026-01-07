@@ -5,7 +5,7 @@
 - **Effective Date:** Immediately Upon Deployment
 - **Jurisdiction:** Saint Vincent and the Grenadines
 - **Administrative Status:** **OWNERSHIP RENOUNCED / NULL AUTHORITY**
-- **Smart Contract Address:** `[INSERT DEPLOYED CONTRACT ADDRESS HERE]`
+- **Smart Contract Address:** `0x98376d6dcc148FcdBdbaa4E895ee6f2D3FE52df4`
 
 ---
 
@@ -100,7 +100,7 @@ LEAs are directed to utilize independent blockchain forensics tools (e.g., Chain
 - **Smart Contract Code:** The verified source code logic.
 
 **Official Block Explorer:**
-`https://polygonscan.com/address/[INSERT CONTRACT ADDRESS]`
+`https://polygonscan.com/address/0x98376d6dcc148FcdBdbaa4E895ee6f2D3FE52df4`
 
 **WE CANNOT PROVIDE ANY DATA BEYOND WHAT IS ALREADY VISIBLE ON THE PUBLIC BLOCK EXPLORER.**
 

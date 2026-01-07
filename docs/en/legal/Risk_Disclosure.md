@@ -4,7 +4,7 @@
 - **Version:** 0.1.0
 - **Jurisdiction:** Saint Vincent and the Grenadines
 - **Administrative Status:** **OWNERSHIP RENOUNCED / NULL AUTHORITY**
-- **Smart Contract Address:** `[INSERT DEPLOYED CONTRACT ADDRESS HERE]`
+- **Smart Contract Address:** `0x98376d6dcc148FcdBdbaa4E895ee6f2D3FE52df4`
 
 **IMPORTANT NOTICE:**
 Participation in the Safwa Decentralized Network involves a **SIGNIFICANT DEGREE OF RISK**. Before interacting with the Smart Contract, connecting your wallet, or exchanging any funds for SAFWA tokens, you should carefully consider the risks described below.
@@ -30,7 +30,7 @@ You acknowledge and accept that you may lose **100% of the funds** (USDC) you co
 
 ### 1.3. Volatility and Price Fluctuations
 
-The price of SAFWA is determined by an automated Bonding Curve algorithm ().
+The price of SAFWA is determined by an automated Bonding Curve algorithm ($P(x) = 0.005\sqrt{x} + 1$).
 
 - **Algorithmic Sensitivity:** Unlike traditional markets, the price reacts mathematically to every single buy and sell transaction. A series of large sell orders can cause a rapid, cascading price crash ("Slippage Cascade").
 - **No Circuit Breakers:** There are no "trading halts" or "circuit breakers" to stop a crash. The market operates 24/7/365.

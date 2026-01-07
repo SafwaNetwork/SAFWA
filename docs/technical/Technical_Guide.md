@@ -33,7 +33,7 @@ To interact with SAFWA, you need:
 
 ### For Developers
 
-* **Repo:** [GitHub Link]
+* **Repo:** [https://github.com/SafwaNetwork/SAFWA](https://github.com/SafwaNetwork/SAFWA)
 * **License:** MIT
 * **Solidity Version:** `^0.8.33`
 
@@ -103,7 +103,7 @@ uint256 refund = safwa.getSellRefund(amount);
 ### Price Function
 
 The instant spot price follows a square root curve:
-$$ P(x) = 0.002\sqrt{x} + 1 $$
+$$ P(x) = 0.005\sqrt{x} + 1 $$
 
 ### Reserves
 

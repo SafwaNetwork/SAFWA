@@ -4,7 +4,7 @@
 - **Version:** 0.1.0
 - **Jurisdiction:** Saint Vincent and the Grenadines
 - **Contract Status:** **OWNERSHIP RENOUNCED (IMMUTABLE)**
-- **Smart Contract Address:** `[INSERT DEPLOYED CONTRACT ADDRESS HERE]`
+- **Smart Contract Address:** `0x98376d6dcc148FcdBdbaa4E895ee6f2D3FE52df4`
 
 ---
 
@@ -22,7 +22,7 @@ The source code for the Safwa Protocol has been fully **Verified and Published**
 
 - **Total Transparency:** Any developer, security researcher, or user can examine 100% of the logic governing the Bonding Curve, the Reserve, and the Pricing Formula.
 - **Bytecode Match:** The code you see on the explorer is guaranteed to be the exact binary code executing your transactions.
-- **Verify Here:** `https://polygonscan.com/address/[INSERT ADDRESS]`
+- **Verify Here:** `https://polygonscan.com/address/0x98376d6dcc148FcdBdbaa4E895ee6f2D3FE52df4`
 
 ---
 
@@ -64,7 +64,7 @@ Before deployment, the Safwa Protocol underwent rigorous internal testing and mo
 
 ### 5.1. Mathematical Integrity
 
-- **Bonding Curve Formula:** The pricing logic () was unit-tested to ensure price continuity and prevent "rounding errors" that could drain the reserve.
+- **Bonding Curve Formula:** The pricing logic ($P(x) = 0.005\sqrt{x} + 1$) was unit-tested to ensure price continuity and prevent "rounding errors" that could drain the reserve.
 - **Overflow Protection:** The contract utilizes **Solidity 0.8.x**, which includes built-in compiler protection against Integer Overflow and Underflow attacks.
 
 ### 5.2. Transaction Security

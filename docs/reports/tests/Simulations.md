@@ -61,21 +61,21 @@ The contract successfully accumulated a "safety surplus" (dust) due to the stric
 
 * **Total Operations:** 1,962 Trades
 * **Final Supply:** 100,000,155 SFW§
-* **Final Price:** ~$21.00 USDC
-* **Market Cap / Reserve:** ~$1.41 Billion USDC
+* **Final Price:** ~$51.00 USDC
+* **Market Cap / Reserve:** ~$3.43 Billion USDC
 
 ### Data Log (Snapshot)
 
 The simulation progressed through simulated "Months" of activity.
 
 ```text
-📅 Month 1  | Supply: 64.39M SFW | Price: ~$17.05 | Reserve: $753.35M  | Surplus: 294 wei
-📅 Month 2  | Supply: 99.34M SFW | Price: ~$20.93 | Reserve: $1419.47M | Surplus: 574 wei
-📅 Month 3  | Supply: 99.12M SFW | Price: ~$20.91 | Reserve: $1414.95M | Surplus: 838 wei
+📅 Month 1  | Supply: 64.39M SFW | Price: ~$41.12 | Reserve: ~$1.72B   | Surplus: 294 wei
+📅 Month 2  | Supply: 99.34M SFW | Price: ~$50.83 | Reserve: ~$3.40B   | Surplus: 574 wei
+📅 Month 3  | Supply: 99.12M SFW | Price: ~$50.78 | Reserve: ~$3.39B   | Surplus: 838 wei
 ✅ COMPLETE | Final Supply: 100.00M
 ```
 
-*Result:* **PASSED**. Reserve matches mathematical requirement exactly ($~1.41B).
+*Result:* **PASSED**. Reserve matches mathematical requirement exactly ($~3.43B).
 
 ---
 
@@ -85,20 +85,20 @@ The simulation progressed through simulated "Months" of activity.
 
 ### Results
 
-The contract handled the 200M scaling without issue, managing a reserve of nearly **$4 Billion**.
+The contract handled the 200M scaling without issue, managing a reserve of nearly **$9.6 Billion**.
 
 ### Key Metrics
 
 * **Total Operations:** 2,892 Trades
 * **Final Supply:** 200,000,324 SFW§
-* **Final Price:** ~$29.17 USDC
-* **Market Cap / Reserve:** ~$3.92 Billion USDC
+* **Final Price:** ~$71.71 USDC
+* **Market Cap / Reserve:** ~$9.62 Billion USDC
 
 ### Data Log (Snapshot)
 
 ```text
-📅 Month 2  | Supply: 121.62M SFW | Price: ~$23.06 | Reserve: $1910.03M | Surplus: 589 wei
-📅 Month 4  | Supply: 198.40M SFW | Price: ~$29.17 | Reserve: $3924.52M | Surplus: 1164 wei
+📅 Month 2  | Supply: 121.62M SFW | Price: ~$56.14 | Reserve: ~$4.60B   | Surplus: 589 wei
+📅 Month 4  | Supply: 198.40M SFW | Price: ~$71.43 | Reserve: ~$9.51B   | Surplus: 1164 wei
 ✅ COMPLETE | Final Supply: 200.00M
 ```
 

@@ -4,7 +4,7 @@
 - **Version:** 0.1.0
 - **Jurisdiction:** Saint Vincent and the Grenadines
 - **Interface Domain:** `safwa.network`
-- **Smart Contract Address:** `[INSERT DEPLOYED CONTRACT ADDRESS HERE]`
+- **Smart Contract Address:** `0x98376d6dcc148FcdBdbaa4E895ee6f2D3FE52df4`
 
 ---
 

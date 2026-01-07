@@ -35,7 +35,7 @@ $$ P(S) = m \sqrt{S} + b $$
 
 Where:
 
-* **$m$ (Slope):** Implemented implicitly via the integral denominator. Effectively $2 \cdot 10^{-12}$ in raw units.
+* **$m$ (Slope):** Implemented implicitly via the integral denominator. Effectively $5 \cdot 10^{-12}$ in raw units.
 * **$b$ (Base Price):** 1.0 USDC (technically handled via the linear term in the integral).
 
 ### 2.2 Reserve Mechanism
@@ -52,9 +52,9 @@ To prevent approximation errors, the contract calculates the exact area under th
 $$ R(S) = \int_{0}^{S} (m x^{0.5} + b) dx = \frac{2}{3}m S^{1.5} + b S $$
 
 **Implementation Verification:**
-Code: `term1 = s_pow_1_5.mulDiv(4, 3e12)`
-$$ \text{Term 1} = \frac{4 \cdot S^{1.5}}{3 \cdot 10^{12}} = \frac{2}{3} \cdot \left(\frac{2}{10^{12}}\right) \cdot S^{1.5} $$
-This confirms the slope $m = 2 \cdot 10^{-12}$.
+Code: `term1 = s_pow_1_5.mulDiv(4, 12e11)`
+$$ \text{Term 1} = \frac{4 \cdot S^{1.5}}{1.2 \cdot 10^{12}} = \frac{3.33 \dots}{10^{12}} \cdot S^{1.5} $$
+This confirms the slope $m = 5 \cdot 10^{-12}$ (raw) or $0.005$ (unit).
 
 ---
 

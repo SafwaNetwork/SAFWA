@@ -4,7 +4,7 @@
 - **Version:** 0.1.0
 - **Effective Date:** Upon Transaction Execution
 - **Jurisdiction:** Saint Vincent and the Grenadines
-- **Smart Contract Address:** `[INSERT DEPLOYED CONTRACT ADDRESS HERE]`
+- **Smart Contract Address:** `0x98376d6dcc148FcdBdbaa4E895ee6f2D3FE52df4`
 
 ---
 
@@ -26,7 +26,7 @@
 
 For the purposes of this Agreement, the following terms shall have the meanings ascribed to them below:
 
-- **"Bonding Curve"** means the immutable mathematical algorithm encoded within the Smart Contract that automatically determines the price of the Token based on the Total Supply. The specific formula is defined as , where  is the Total Supply.
+- **"Bonding Curve"** means the immutable mathematical algorithm encoded within the Smart Contract that automatically determines the price of the Token based on the Total Supply. The specific formula is defined as $P(x) = 0.005\sqrt{x} + 1$, where $x$ is the Total Supply.
 - **"Creators"** means the software developers, architects, and initial deployers who wrote the open-source code for the Protocol. Upon deployment, the Creators relinquish control to the immutable logic of the blockchain.
 - **"DApp"** (Decentralized Application) means the web-based user interface (GUI) hosted at `safwa.network` or any other domain, which serves merely as a tool to visualize blockchain data and facilitate transaction signing.
 - **"Gas Fees"** means the transaction fees paid to the Polygon Network validators (in MATIC/POL) to process transactions. These fees are non-refundable and outside the control of the Protocol.

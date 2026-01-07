@@ -154,4 +154,4 @@ SAFWA is more than a token; it is a statement that **Mathematics > Man.**
 **"Don't Trust, Verify."**
 The code you see on PolygonScan is the exact code managing your funds.
 
-> **Disclaimer:** SAFWA is a cryptographic utility. Participation involves risk. The Bonding Curve mechanic means the price fluctuates based on supply. Please read our **[Risk Disclosure Statement](/risk)** and **[Financial Audit](/audit)** before participating.
+> **Disclaimer:** SAFWA is a cryptographic utility. Participation involves risk. The Bonding Curve mechanic means the price fluctuates based on supply. Please read our **[Risk Disclosure Statement](legal/Risk_Disclosure.md)** and **[Financial Audit](Tokenomics_Financial_Simulation.md)** before participating.

@@ -1,6 +1,6 @@
 # TOKENOMICS & FINANCIAL SIMULATION REPORT: SAFWA (SFW§)
 
-**Configuration: High-Incentive Growth Model ()**
+**Configuration: High-Incentive Growth Model**
 
 **Document Status:** Technical Audit / Final Specification
 **Reserve Asset:** USDC (Native Polygon)
@@ -22,8 +22,8 @@ The **SAFWA Protocol** implements a Continuous Liquidity Mechanism. Unlike tradi
 
 | Parameter | Value | Technical Role |
 | --- | --- | --- |
-| **Initial Price ()** | 1.00 USDC | The mathematical floor price at zero supply. |
-| **Slope Factor ()** | **0.005** | The coefficient determining price sensitivity. |
+| **Initial Price ($P_0$)** | 1.00 USDC | The mathematical floor price at zero supply. |
+| **Slope Factor ($m$)** | **0.005** | The coefficient determining price sensitivity. |
 | **Reserve Ratio** | 100% | Every SFW§ is fully collateralized by USDC. |
 | **Network** | Polygon PoS | Low-latency, high-efficiency execution layer. |
 
@@ -33,16 +33,16 @@ The **SAFWA Protocol** implements a Continuous Liquidity Mechanism. Unlike tradi
 
 The following simulation demonstrates the deterministic price behavior of SFW§ as adoption grows. Because the price is a function of supply, these milestones are mathematically guaranteed once the corresponding supply is reached.
 
-| Circulating Supply () | Spot Price () | Total Reserve (USDC) | Average Entry Price |
+| Circulating Supply ($S$) | Spot Price ($P$) | Total Reserve (USDC) | Average Entry Price |
 | --- | --- | --- | --- |
 | **0** | $1.00 | $0 | - |
 | **10,000** | $1.50 | $13,333 | $1.33 |
 | **100,000** | $2.58 | $205,475 | $2.05 |
 | **500,000** | $4.53 | $1,678,228 | $3.35 |
 | **1,000,000** | **$6.00** | **$4,333,333** | **$4.33** |
-| **5,000,000** | $12.18 | $38,261,311 | $7.65 |
+| **5,000,000** | $12.18 | $42,267,800 | $8.45 |
 | **10,000,000** | $16.81 | $115,410,196 | $11.54 |
-| **100,000,000** | $51.00 | $4,333,333,333 | $43.33 |
+| **100,000,000** | $51.00 | $3,433,333,333 | $34.33 |
 
 ### 📊 Mathematical Insights
 
@@ -101,7 +101,7 @@ To support the continued growth of the SAFWA ecosystem, a minimal tax is applied
 
 ## 6. FINAL CONCLUSION
 
-The **** configuration establishes SAFWA as a high-growth financial utility. By combining an aggressive price discovery curve with a 100% collateralized reserve, the protocol offers:
+The **0.005** configuration establishes SAFWA as a high-growth financial utility. By combining an aggressive price discovery curve with a 100% collateralized reserve, the protocol offers:
 
 1. **Deterministic Appreciation:** Price growth is a direct mathematical result of supply expansion.
 2. **Guaranteed Exit:** Liquidity is always present in the contract; no external buyers are required to sell.
