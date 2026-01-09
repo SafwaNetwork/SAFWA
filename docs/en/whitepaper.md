@@ -5,7 +5,7 @@
 | **Document Metadata** |  |
 | --- | --- |
 | **Version** | 2.0.0 (Technical Release) |
-| **Date** | January 7, 2026 |
+| **Date** | January 8, 2026 |
 | **Asset Symbol** | SFW§ |
 | **Underlying Ledger** | Polygon PoS (EVM) |
 | **Reserve Asset** | USDC (ERC-20) |
@@ -89,7 +89,7 @@ The New Supply $S_{new}$ is derived by inverting the Reserve Function. However, 
 $$Cost(\Delta S) = R(S + \Delta S) - R(S)$$
 $$Cost(\Delta S) = \left( \frac{2m}{3}(S+\Delta S)^{1.5} + b(S+\Delta S) \right) - \left( \frac{2m}{3}S^{1.5} + bS \right)$$
 
-To ensure the contract is never under-collateralized due to EVM rounding errors, we apply a **Ceiling Function**:
+To ensure the contract is never under-collateralized due to EVM rounding errors, we apply a **Ceiling Function (Round UP)**:
 
 $$USDC_{Required} = \lceil Cost(\Delta S) \rceil$$
 
@@ -99,9 +99,11 @@ When a user burns $\Delta S$ tokens to receive a USDC refund:
 
 $$Refund(\Delta S) = R(S) - R(S - \Delta S)$$
 
-To ensure the contract retains dust and maintains solvency, we apply a **Floor Function**:
+To ensure the contract retains dust and maintains solvency, we apply a **Floor Function (Round DOWN)**:
 
 $$USDC_{Payout} = \lfloor Refund(\Delta S) \rfloor$$
+
+**Safety Surplus:** This asymmetrical rounding (Buy UP / Sell DOWN) guarantees that the contract mathematicaly accumulates a "Safety Surplus" of dust USDC over time, ensuring $TotalReserve \ge TheoreticalReserve$ is always true.
 
 ---
 
@@ -163,8 +165,8 @@ Solidity does not support floating-point numbers. We utilize **Fixed-Point Arith
 
 ### 5.3 Security Modules
 
-1. **ReentrancyGuard:** Applied to `sell()` and `transfer()` functions. Prevents malicious contracts from calling back into the Safwa contract before the state is updated (The "Check-Effects-Interactions" pattern).
-2. **Slippage Protection (`minAmountOut`):**
+1. **ReentrancyGuard:** Applied to **all** state-changing functions (`buy()`, `sell()`, `transfer()`). Prevents malicious contracts from calling back into the Safwa contract before the state is updated (The "Check-Effects-Interactions" pattern).
+2. **Slippage Protection:**
     * **Front-Running Defense:** Users must submit a `minAmountOut` parameter. If a bot attempts to "Sandwich" the transaction (buy before, sell after), the user's transaction will revert because the price moved beyond their tolerance.
 
 ---
@@ -201,7 +203,7 @@ This Hard-Capped Fee structure is crucial for institutional adoption. A Fund exi
 ### 7.3 Governance Risk
 
 **Risk:** Admin changing the formula or stealing funds.
-**Mitigation:** **Renounced Ownership.** The contract owner is `0x000...000`. No privileged functions exist. The code is immutable.
+**Mitigation:** **Restricted Ownership (Ownable2Step).** While the contract has an owner, permissions are strictly limited to `rescueTokens` (for accidental ERC20 sends) and the tax address is immutable. The owner **cannot** mint tokens, pause the contract, or withdraw reserves/supply.
 
 ---
 
@@ -218,12 +220,12 @@ The **SAFWA Protocol** is not merely a token; it is a **Financial Primitive**. I
 ```solidity
 interface ISafwaBondingCurve {
     // Core Market Functions
-    function buy(uint256 minTokenOut) external returns (uint256 tokenMinted);
-    function sell(uint256 tokenAmount, uint256 minUsdcOut) external returns (uint256 usdcRefund);
+    function buy(uint256 tokenAmount, uint256 maxCost) external;
+    function sell(uint256 tokenAmount, uint256 minRefund) external;
 
     // View Functions (For UI/Analytics)
-    function getBuyPrice(uint256 tokenAmount) external view returns (uint256 usdcCost);
-    function getSellPrice(uint256 tokenAmount) external view returns (uint256 usdcRefund);
-    function currentPrice() external view returns (uint256 usdcPrice);
+    function getBuyCost(uint256 tokenAmount) external view returns (uint256 usdcCost);
+    function getSellRefund(uint256 tokenAmount) external view returns (uint256 usdcRefund);
+    function totalSupply() external view returns (uint256);
 }
 ```

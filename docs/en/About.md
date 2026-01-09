@@ -6,9 +6,9 @@
 
 ---
 
-- **Last Updated:** January 7, 2026
+- **Last Updated:** January 8, 2026
 - **Jurisdiction:** Saint Vincent and the Grenadines
-- **Contract Status:** **OWNERSHIP RENOUNCED (IMMUTABLE)**
+- **Contract Status:** **RESTRICTED OWNERSHIP (IMMUTABLE)**
 - **Smart Contract Address:** `0x98376d6dcc148FcdBdbaa4E895ee6f2D3FE52df4`
 
 ---
@@ -62,12 +62,12 @@ $$P(x) = 0.005 \times \sqrt{x} + 1$$
 
 1. **Minting (Buying):**
     When you deposit **USDC** (Native Polygon) into the contract, the protocol mints new SFW§ tokens for you.
-    - *Solvency Protection:* The contract strictly **Rounds UP** cost calculations to ensure the reserve is never underfunded.
+    - *Solvency Protection:* The contract strictly **Rounds UP** cost calculations to ensure the reserve is never underfunded, accumulating a "Safety Surplus."
 
 2. **Burning (Selling):**
     When you want to exit, you sell SFW§ back to the contract. The protocol burns your tokens and instantly releases your share of the **USDC Reserve**.
     - *The Guarantee:* Because the reserve is mathematically locked, the contract *always* has enough USDC to pay you out. You never need to wait for a "buyer" on an exchange.
-    - *Solvency Protection:* The contract strictly **Rounds DOWN** refund calculations to guarantee 100% solvency at all times.
+    - *Solvency Protection:* The contract strictly **Rounds DOWN** refund calculations to guarantee 100% solvency plus a safety margin at all times.
 
 ---
 
@@ -139,7 +139,7 @@ For years, the DeFi space was plagued by opacity. Platforms promised "freedom" b
 
 ### The Deployment
 
-The SAFWA smart contract was deployed to the **Polygon Mainnet**. At that exact second, the protocol became autonomous. The "God Mode" keys were destroyed (renounced), stripping the creators of the ability to ever access the USDC reserves.
+The SAFWA smart contract was deployed to the **Polygon Mainnet**. At that exact second, the protocol became autonomous. The "God Mode" privileges were permanently removed, stripping the creators of the ability to ever access the USDC reserves or mint tokens.
 
 ---
 

@@ -13,9 +13,9 @@
 
 The SAFWA contract has undergone rigorous testing and auditing processes to ensure maximum security and financial integrity:
 
-* **[Financial Audit & Tokenomics Report](docs/reports/audits/Financial_Audit.md):** A deep-dive analysis confirming 100% solvency, mathematical correctness of the bonding curve, and resistance to economic attacks.
+* **[Financial Audit & Tokenomics Report](docs/en/Financial_Audit.md):** A deep-dive analysis confirming 100% solvency, mathematical correctness of the bonding curve, and resistance to economic attacks.
 * **[Security Audit Report](docs/reports/audits/SmartContract_Audit.md):** A comprehensive code audit utilizing Slither static analysis and manual review, confirming the contract is safe for deployment.
-* **[Simulation & Stress Test](docs/reports/tests/Simulations.md):** Verified solvency through large-scale simulations reaching **100M** and **200M** supply targets.
+* **[Simulation & Stress Test](docs/en/Simulations.md):** Verified solvency through large-scale simulations reaching **100M** and **200M** supply targets.
 * **Immutable Logic:** The core mathematical and economic rules are immutable. The owner cannot pause the contract, blacklist users, or withdraw the USDC reserves.
 
 ## 📚 Documentation & Legal Compliance
@@ -40,7 +40,7 @@ The Safwa Network operates with a "Code is Law" philosophy, supported by a compr
 
 ### 🛠️ Technical Reports
 
-* **[Dev Guide](docs/technical/Technical_Guide.md):** Deployment and testing instructions.
+* **[Dev Guide](docs/en/Technical_Guide.md):** Deployment and testing instructions.
 * **[Changelog](docs/reports/log.md):** Project updates and history.
 
 ## Key Features
@@ -52,6 +52,7 @@ The Safwa Network operates with a "Code is Law" philosophy, supported by a compr
 * **Native & Token Rescue:** Includes a restricted mechanism for the project admin to rescue accidentally sent ERC20 tokens or native ETH/MATIC, without being able to touch the USDC reserves or SFW§ supply.
 * **Slippage Protection:** Built-in protection against slippage during both buy and sell operations.
 * **Safety First:** Implements rigorous rounding strategies (Round UP on buys, Round DOWN on sells) to guarantee mathematical solvency.
+* **Safety Surplus:** The contract strictly intentionally accumulates a mathematical surplus of dust USDC to ensure it is always over-collateralized.
 
 ## Contract Details
 
@@ -91,9 +92,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 خضع عقد "صفوة" لعمليات اختبار وتدقيق صارمة لضمان أقصى درجات الأمان والنزاهة المالية:
 
-* **[تقرير التدقيق المالي والاقتصاد الرقمي](docs/reports/audits/Financial_Audit.md):** تحليل معمق يؤكد ملاءة مالية بنسبة 100%، وصحة رياضية لمنحنى الترابط، ومقاومة تامة للهجمات الاقتصادية.
+* **[تقرير التدقيق المالي والاقتصاد الرقمي](docs/ar/Financial_Audit.md):** تحليل معمق يؤكد ملاءة مالية بنسبة 100%، وصحة رياضية لمنحنى الترابط، ومقاومة تامة للهجمات الاقتصادية.
 * **[تقرير التدقيق الأمني](docs/reports/audits/SmartContract_Audit.md):** تدقيق شامل للكود البرمجي باستخدام التحليل الثابت (Slither) والمراجعة اليدوية، مما يؤكد جاهزية العقد للنشر الآمن.
-* **[المحاكاة واختبارات الإجهاد](docs/reports/tests/Simulations.md):** تم التحقق من الملاءة المالية عبر عمليات محاكاة واسعة النطاق وصلت لأهداف عرض تبلغ **100 مليون** و **200 مليون** رمز.
+* **[المحاكاة واختبارات الإجهاد](docs/ar/Simulations.md):** تم التحقق من الملاءة المالية عبر عمليات محاكاة واسعة النطاق وصلت لأهداف عرض تبلغ **100 مليون** و **200 مليون** رمز.
 * **منطق برمجى راسخ:** القواعد الرياضية والاقتصادية الأساسية غير قابلة للتغيير (Immutable). لا يمكن للمالك إيقاف العقد مؤقتاً، أو إدراج المستخدمين في القائمة السوداء، أو سحب احتياطيات USDC.
 
 ## 📚 التوثيق والامتثال القانوني
@@ -118,7 +119,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ### 🛠️ التقارير الفنية
 
-* **[دليل المطورين](docs/technical/Technical_Guide.md):** تعليمات النشر والاختبار.
+* **[دليل المطورين](docs/ar/Technical_Guide.md):** تعليمات النشر والاختبار.
 * **[سجل التغييرات](docs/reports/log.md):** تحديثات المشروع وتاريخه.
 
 ## الميزات الرئيسية

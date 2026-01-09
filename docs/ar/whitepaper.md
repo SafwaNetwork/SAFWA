@@ -5,7 +5,7 @@
 | **البيانات الوصفية للوثيقة** |  |
 | --- | --- |
 | **الإصدار** | 2.0.0 (الإصدار التقني) |
-| **التاريخ** | 7 يناير 2026 |
+| **التاريخ** | 8 يناير 2026 |
 | **رمز الأصل** | SFW§ |
 | **السجل الأساسي (الشبكة)** | بوليجون لإثبات الحصة (Polygon PoS - EVM) |
 | **أصل الاحتياطي** | عملة الدولار الرقمي (USDC - ERC-20) |
@@ -109,6 +109,8 @@ $$Refund(\Delta S) = R(S) - R(S - \Delta S)$$
 
 $$USDC_{Payout} = \lfloor Refund(\Delta S) \rfloor$$
 
+**فائض الأمان (Safety Surplus):** يضمن هذا التقريب غير المتماثل (للأعلى عند الشراء / للأدنى عند البيع) أن يراكم العقد رياضياً "فائض أمان" من كسور USDC بمرور الوقت، مما يضمن أن العلاقة $TotalReserve \ge TheoreticalReserve$ تظل صحيحة دائماً.
+
 ---
 
 ## 4. الهندسة المالية وديناميكيات السوق
@@ -169,8 +171,8 @@ $$P'(S) = \frac{d}{dS}(mS^{0.5} + b) = 0.5 \cdot m \cdot S^{-0.5}$$
 
 ### 5.3 الوحدات الأمنية
 
-1. **حماية الدخول المتكرر (ReentrancyGuard):** تُطبق على وظيفتي `sell()` و `transfer()`. تمنع العقود الخبيثة من الاتصال مرة أخرى بعقد صفوة قبل تحديث الحالة (نمط "التحقق-التأثيرات-التفاعلات").
-2. **حماية الانزلاق السعري (`minAmountOut`):**
+1. **حماية الدخول المتكرر (ReentrancyGuard):** تُطبق على **جميع** الوظائف التي تغير الحالة (`buy()`، `sell()`، `transfer()`). تمنع العقود الخبيثة من الاتصال مرة أخرى بعقد صفوة قبل تحديث الحالة (نمط "التحقق-التأثيرات-التفاعلات").
+2. **حماية الانزلاق السعري:**
     * **دفاع السبق في التداول:** يجب على المستخدمين تقديم معامل `minAmountOut`. إذا حاول روبوت آلي القيام بـ "هجوم الساندويتش" (الشراء قبل، والبيع بعد)، ستفشل معاملة المستخدم لأن السعر تحرك خارج نطاق التسامح الخاص به.
 
 ---
@@ -207,7 +209,7 @@ $$Tax = \min(Amount_{USDC} \times 0.001, \quad 100 \text{ USDC})$$
 ### 7.3 مخاطر الحوكمة
 
 **الخطر:** قيام المسؤول بتغيير الصيغة أو سرقة الأموال.
-**التخفيف:** **تم التخلي عن الملكية.** مالك العقد هو `0x000...000`. لا توجد وظائف ذات امتيازات. الكود غير قابل للتغيير.
+**التخفيف:** **ملكية مقيدة (Restricted Ownership) عبر Ownable2Step.** في حين أن العقد له مالك، إلا أن الصلاحيات مقيدة بصرامة بوظيفة `rescueTokens` (لإنقاذ رموز ERC20 المرسلة خطأً فقط)، كما أن عنوان الضريبة ثابت غير قابل للتغيير. **لا يستطيع** المالك صك الرموز، أو إيقاف العقد، أو سحب الاحتياطيات.
 
 ---
 
@@ -224,12 +226,12 @@ $$Tax = \min(Amount_{USDC} \times 0.001, \quad 100 \text{ USDC})$$
 ```solidity
 interface ISafwaBondingCurve {
     // Core Market Functions
-    function buy(uint256 minTokenOut) external returns (uint256 tokenMinted);
-    function sell(uint256 tokenAmount, uint256 minUsdcOut) external returns (uint256 usdcRefund);
+    function buy(uint256 tokenAmount, uint256 maxCost) external;
+    function sell(uint256 tokenAmount, uint256 minRefund) external;
 
     // View Functions (For UI/Analytics)
-    function getBuyPrice(uint256 tokenAmount) external view returns (uint256 usdcCost);
-    function getSellPrice(uint256 tokenAmount) external view returns (uint256 usdcRefund);
-    function currentPrice() external view returns (uint256 usdcPrice);
+    function getBuyCost(uint256 tokenAmount) external view returns (uint256 usdcCost);
+    function getSellRefund(uint256 tokenAmount) external view returns (uint256 usdcRefund);
+    function totalSupply() external view returns (uint256);
 }
 ```

@@ -19,7 +19,6 @@ import "@openzeppelin/contracts/utils/math/Math.sol";
  * - Tax: 0.1% on Sell Refund (Max 100 USDC CAP).
  * - Safety: Round UP buy costs, Round DOWN sell refunds.
  * - Architecture: Immutable logic. Ownable2Step for rescue control.
- * - address: 0x98376d6dcc148FcdBdbaa4E895ee6f2D3FE52df4
  */
 contract SAFWA is ERC20, Ownable2Step, ReentrancyGuard {
     using SafeERC20 for IERC20;

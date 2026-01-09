@@ -8,7 +8,7 @@
 
 ---
 
-- **Last Updated:** January 7, 2026
+- **Last Updated:** January 8, 2026
 - **Jurisdiction:** Saint Vincent and the Grenadines
 - **Smart Contract Address:** `0x98376d6dcc148FcdBdbaa4E895ee6f2D3FE52df4`
 
@@ -69,7 +69,7 @@ To protect the reserve against mathematical "drainage" or rounding exploits, the
 
 **The Solvency Invariant:**
 
-This strategy ensures that the vault always holds a surplus of "dust" USDC, keeping the protocol over-collateralized at all times.
+This strategy ensures that the vault always holds a "Safety Surplus" of dust USDC. Because liabilities (Sell Refund) are rounded down and assets (Buy Cost) are rounded up, the contract is slightly **over-collateralized**, guaranteeing 100% solvency even in theoretical boundary conditions.
 
 ---
 
